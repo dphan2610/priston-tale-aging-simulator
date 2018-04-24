@@ -21,5 +21,7 @@ This tool helps calculate the expected (average) total amount of sheltoms and st
     }
 ```
 
+Failure chances are in pt-aging-chance.png file.
+
 More information on item upgrading:<br/>
 http://pristonworld.com/EPT/aging.html
