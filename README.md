@@ -21,5 +21,5 @@ This tool helps calculate the expected (average) total amount of sheltoms and st
     }
 ```
 
-More information:<br/>
+More information on item upgrading:<br/>
 http://pristonworld.com/EPT/aging.html
