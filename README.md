@@ -7,6 +7,7 @@ Interesting fact: Item upgrading could fail, and when it does, it is downgraded 
 Another possible sequence:<br/>
 10->11->12->13->12->13->14
 
+This tool helps calculate the expected (average) total amount of sheltoms and stones, which are resources used to upgrade an item.
 ```
     public static void main(String [] args) {
         int itemStartLevel = 0;
