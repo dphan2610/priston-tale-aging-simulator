@@ -10,8 +10,8 @@ Another possible sequence:<br/>
 This tool helps calculate the expected (average) total amount of sheltoms and stones, which are resources used to upgrade an item.
 ```
     public static void main(String [] args) {
-        int itemStartLevel = 0;
-        int itemEndLevel = 15;
+        int itemStartLevel = 10;
+        int itemEndLevel = 14;
         int numberOfSimulation = 10000;
         AgingBot bot = new AgingBot(itemStartLevel, itemEndLevel, numberOfSimulation);
         bot.start();
