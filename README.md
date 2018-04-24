@@ -1,6 +1,8 @@
 # priston-tale-aging-simulator
 
-A tool to get expected result for items upgrading in Priston Tale MMORPG.
+A tool to get expected result for items aging (upgrading) in Priston Tale MMORPG.<br/>
+Interesting fact: Item upgrading could fail, and when it does, it is downgraded by 1 or 2 level. Chance of failing increases as item level get higher. A possible sequence of item level when upgrading would look like:<br/>
+10->11->12->11->12->13->12->10->9->10->11->12->13->14
 ```
     public static void main(String [] args) {
         int itemStartLevel = 0;
