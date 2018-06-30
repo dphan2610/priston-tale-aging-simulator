@@ -1,8 +1,5 @@
 package model;
 
-/**
- * Created by Dat Phan on 3/10/2018.
- */
 public enum Sheltom {
 
     FADEO,
