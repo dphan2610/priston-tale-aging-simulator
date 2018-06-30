@@ -4,9 +4,6 @@ import model.Sheltom;
 
 import java.util.*;
 
-/**
- * Created by Dat Phan on 3/10/2018.
- */
 public class AgingBot {
 
     private List<Integer> sasUsedList = new ArrayList<Integer>();
