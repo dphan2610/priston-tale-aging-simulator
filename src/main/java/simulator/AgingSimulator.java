@@ -8,9 +8,6 @@ import java.util.*;
 
 import static info.AgingInfo.getAgingInfo;
 
-/**
- * Created by Dat Phan on 3/10/2018.
- */
 public class AgingSimulator {
 
     public int totalDeages = 0;
