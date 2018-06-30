@@ -9,9 +9,6 @@ import static model.Sheltom.*;
 import static model.Sheltom.BELLUM;
 import static model.Sheltom.ORDO;
 
-/**
- * Created by Dat Phan on 3/10/2018.
- */
 public class AgingInfo {
 
     public List<Sheltom> sheltoms;
