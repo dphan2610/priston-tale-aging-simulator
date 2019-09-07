@@ -7,13 +7,17 @@ import model.Sheltom;
 import java.util.*;
 
 import static info.AgingInfo.getAgingInfo;
+import static info.AgingInfo.getAgingInfoSCO;
 
 public class AgingSimulator {
 
     public int totalDeages = 0;
     public int totalSAS = 0;
+    public int totalSCO = 0;
     private int startLevel;
     private int endLevel;
+
+    private boolean useSAS = false;
 
     public List<Sheltom> sheltomsUsed = new ArrayList<Sheltom>();
 
@@ -26,12 +30,20 @@ public class AgingSimulator {
         validate();
         int currentLevel = startLevel;
         while (currentLevel < endLevel) {
+            if (currentLevel >= 6) {
+                useSAS = true;
+            } else {
+                useSAS = false;
+            }
             if (currentLevel >= 5) {
-                totalSAS++;
+                if (useSAS)
+                    totalSAS++;
+                else
+                    totalSCO++;
             }
             int toLevel = currentLevel + 1;
             AgingResult result = computeResult(toLevel);
-            AgingInfo info = getAgingInfo(toLevel);
+            AgingInfo info = (useSAS ? getAgingInfo(toLevel) : getAgingInfoSCO(toLevel));
             sheltomsUsed.addAll(info.sheltoms);
 
             if (result.success) {
@@ -44,7 +56,7 @@ public class AgingSimulator {
     }
 
     private AgingResult computeResult(int toLevel) {
-        AgingInfo info = getAgingInfo(toLevel);
+        AgingInfo info = (useSAS ? getAgingInfo(toLevel) : getAgingInfoSCO(toLevel));
         boolean success = isSuccess(info.chance);
         int deage = 0;
         if (!success) {
