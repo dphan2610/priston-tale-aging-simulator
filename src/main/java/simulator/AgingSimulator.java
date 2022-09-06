@@ -74,7 +74,7 @@ public class AgingSimulator {
     }
 
     private int computeDeage() {
-        int deageByTwoChance = 30;
+        int deageByTwoChance = 50;
         if (isSuccess(deageByTwoChance)) {
             return 2;
         }

@@ -48,62 +48,62 @@ public class AgingInfo {
         if (level == 6) {
             return new AgingInfo(
                     list(FADEO, FADEO, SPARKY, SPARKY, RAIDENT, RAIDENT, TRANSPARO, TRANSPARO, MURKY, MURKY),
-                    99);
+                    100);
         }
         if (level == 7) {
             return new AgingInfo(
                     list(FADEO, FADEO, SPARKY, SPARKY, RAIDENT, RAIDENT, TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE),
-                    99);
+                    100);
         }
         if (level == 8) {
             return new AgingInfo(
                     list(FADEO, FADEO, SPARKY, SPARKY, RAIDENT, RAIDENT, TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE, DEVINE),
-                    95);
+                    100);
         }
         if (level == 9) {
             return new AgingInfo(
                     list(SPARKY, SPARKY, RAIDENT, RAIDENT, TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE, DEVINE, CELESTO),
-                    95);
+                    100);
         }
         if (level == 10) {
             return new AgingInfo(
                     list(SPARKY, SPARKY, RAIDENT, RAIDENT, TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE, DEVINE, CELESTO, CELESTO),
-                    90);
+                    100);
         }
         if (level == 11) {
             return new AgingInfo(
                     list(RAIDENT, RAIDENT, TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE, DEVINE, CELESTO, CELESTO, MIRAGE),
-                    90);
+                    91);
         }
         if (level == 12) {
             return new AgingInfo(
                     list(RAIDENT, RAIDENT, TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE, DEVINE, CELESTO, CELESTO, MIRAGE, MIRAGE),
-                    85);
+                    84);
         }
         if (level == 13) {
             return new AgingInfo(
                     list(TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE, DEVINE, CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA),
-                    80);
+                    78);
         }
         if (level == 14) {
             return new AgingInfo(
                     list(TRANSPARO, TRANSPARO, MURKY, MURKY, DEVINE, DEVINE, CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA),
-                    75);
+                    71);
         }
         if (level == 15) {
             return new AgingInfo(
                     list(MURKY, MURKY, DEVINE, DEVINE, CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA),
-                    70);
+                    65);
         }
         if (level == 16) {
             return new AgingInfo(
                     list(MURKY, MURKY, DEVINE, DEVINE, CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA),
-                    60);
+                    58);
         }
         if (level == 17) {
             return new AgingInfo(
                     list(DEVINE, DEVINE, CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM),
-                    50);
+                    49);
         }
         if (level == 18) {
             return new AgingInfo(
@@ -113,12 +113,12 @@ public class AgingInfo {
         if (level == 19) {
             return new AgingInfo(
                     list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO),
-                    20);
+                    31);
         }
         if (level == 20) {
             return new AgingInfo(
                     list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO, ORDO),
-                    10);
+                    22);
         }
         throw new IllegalArgumentException("unknown ageToLevel: " + level);
     }
