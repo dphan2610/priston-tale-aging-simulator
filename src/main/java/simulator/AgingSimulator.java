@@ -13,11 +13,13 @@ public class AgingSimulator {
 
     public int totalDeages = 0;
     public int totalSAS = 0;
+    public int totalEOA = 0;
     public int totalSCO = 0;
     private int startLevel;
     private int endLevel;
 
     private boolean useSAS = false;
+    private boolean useEOA = false;
 
     public List<Sheltom> sheltomsUsed = new ArrayList<Sheltom>();
 
@@ -36,7 +38,9 @@ public class AgingSimulator {
                 useSAS = false;
             }
             if (currentLevel >= 5) {
-                if (useSAS)
+                if (useEOA && currentLevel < 17)
+                    totalEOA++;
+                else if (useSAS)
                     totalSAS++;
                 else
                     totalSCO++;
@@ -57,7 +61,7 @@ public class AgingSimulator {
 
     private AgingResult computeResult(int toLevel) {
         AgingInfo info = (useSAS ? getAgingInfo(toLevel) : getAgingInfoSCO(toLevel));
-        boolean success = isSuccess(info.chance);
+        boolean success = (useEOA && toLevel <= 17 || isSuccess(info.chance));
         int deage = 0;
         if (!success) {
             deage = computeDeage();
@@ -65,7 +69,7 @@ public class AgingSimulator {
         return new AgingResult(success, deage);
     }
 
-    private static boolean isSuccess(int chance) {
+    private boolean isSuccess(int chance) {
         int randomNumber = random(1, 100);
         if (1 <= randomNumber && randomNumber <= chance) {
             return true;
@@ -88,11 +92,11 @@ public class AgingSimulator {
     }
 
     private void validate() {
-        if (!(0 <= startLevel && startLevel <= 19)) {
-            throw new IllegalStateException("startLevel must be between 0 and 19");
+        if (!(0 <= startLevel && startLevel <= 29)) {
+            throw new IllegalStateException("startLevel must be between 0 and 29");
         }
-        if (!(1 <= endLevel && endLevel <= 20)) {
-            throw new IllegalStateException("endLevel must be between 1 and 20");
+        if (!(1 <= endLevel && endLevel <= 30)) {
+            throw new IllegalStateException("endLevel must be between 1 and 30");
         }
         if (!(startLevel < endLevel)) {
             throw new IllegalStateException("startLevel must be smaller than endLevel");

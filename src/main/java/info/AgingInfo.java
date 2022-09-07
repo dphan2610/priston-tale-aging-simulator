@@ -120,6 +120,31 @@ public class AgingInfo {
                     list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO, ORDO),
                     22);
         }
+        if (level == 21) {
+            return new AgingInfo(
+                    list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO, ORDO),
+                    12);
+        }
+        if (level == 22) {
+            return new AgingInfo(
+                    list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO, ORDO),
+                    10);
+        }
+        if (level == 23) {
+            return new AgingInfo(
+                    list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO, ORDO),
+                    9);
+        }
+        if (level == 24) {
+            return new AgingInfo(
+                    list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO, ORDO),
+                    9);
+        }
+        if (level == 25) {
+            return new AgingInfo(
+                    list(CELESTO, CELESTO, MIRAGE, MIRAGE, INFERNA, INFERNA, ENIGMA, ENIGMA, BELLUM, BELLUM, ORDO, ORDO),
+                    6);
+        }
         throw new IllegalArgumentException("unknown ageToLevel: " + level);
     }
 

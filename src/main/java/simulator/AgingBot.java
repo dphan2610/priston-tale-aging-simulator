@@ -6,6 +6,7 @@ import java.util.*;
 
 public class AgingBot {
 
+    private List<Integer> eoaUsedList = new ArrayList<Integer>();
     private List<Integer> sasUsedList = new ArrayList<Integer>();
     private List<Integer> scoUsedList = new ArrayList<Integer>();
     private List<List<Sheltom>> sheltomUsedList = new ArrayList<List<Sheltom>>();
@@ -25,6 +26,7 @@ public class AgingBot {
             AgingSimulator simulator = new AgingSimulator(startLevel, endLevel);
             simulator.age();
 
+            eoaUsedList.add(simulator.totalEOA);
             sasUsedList.add(simulator.totalSAS);
             scoUsedList.add(simulator.totalSCO);
             sheltomUsedList.add(simulator.sheltomsUsed);
@@ -41,6 +43,10 @@ public class AgingBot {
 
     public int getAverageSASUsed() {
         return computeAverage(sasUsedList);
+    }
+
+    public int getAverageEOAUsed() {
+        return computeAverage(eoaUsedList);
     }
 
     public int getAverageSCOUsed() {
