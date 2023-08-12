@@ -7,7 +7,6 @@ import model.Sheltom;
 import java.util.*;
 
 import static info.AgingInfo.getAgingInfo;
-import static info.AgingInfo.getAgingInfoSCO;
 
 public class AgingSimulator {
 
@@ -15,6 +14,7 @@ public class AgingSimulator {
     public int totalSAS = 0;
     public int totalEOA = 0;
     public int totalSCO = 0;
+    public int totalSSO = 0; // Superior Silver Ore, for age >= 21
     private int startLevel;
     private int endLevel;
 
@@ -37,21 +37,23 @@ public class AgingSimulator {
             } else {
                 useSAS = false;
             }
-            if (currentLevel >= 5) {
+            if (currentLevel >= 10 && currentLevel < 20) {
                 if (useEOA && currentLevel < 17)
                     totalEOA++;
                 else if (useSAS)
                     totalSAS++;
                 else
                     totalSCO++;
+            } else if (currentLevel >= 20) {
+                totalSSO++;
             }
             int toLevel = currentLevel + 1;
             AgingResult result = computeResult(toLevel);
-            AgingInfo info = (useSAS ? getAgingInfo(toLevel) : getAgingInfoSCO(toLevel));
+            AgingInfo info = getAgingInfo(toLevel);
             sheltomsUsed.addAll(info.sheltoms);
 
             if (result.success) {
-                currentLevel++;
+                currentLevel += result.numberOfSuccess;
             } else {
                 currentLevel -= result.numberOfDeage;
                 totalDeages += result.numberOfDeage;
@@ -60,13 +62,16 @@ public class AgingSimulator {
     }
 
     private AgingResult computeResult(int toLevel) {
-        AgingInfo info = (useSAS ? getAgingInfo(toLevel) : getAgingInfoSCO(toLevel));
-        boolean success = (useEOA && toLevel <= 17 || isSuccess(info.chance));
+        AgingInfo info = getAgingInfo(toLevel);
+        boolean success = (useEOA && toLevel <= 17 || isSuccess(info.successRate));
         int deage = 0;
+        int numSuccess = 0;
         if (!success) {
-            deage = computeDeage();
+            deage = computeDeage(info);
+        } else {
+            numSuccess = computeNumSuccess(info);
         }
-        return new AgingResult(success, deage);
+        return new AgingResult(success, numSuccess, deage);
     }
 
     private boolean isSuccess(int chance) {
@@ -77,9 +82,16 @@ public class AgingSimulator {
         return false;
     }
 
-    private int computeDeage() {
-        int deageByTwoChance = 50;
+    private int computeDeage(AgingInfo info) {
+        int deageByTwoChance = info.minus2FailureRate;
         if (isSuccess(deageByTwoChance)) {
+            return 2;
+        }
+        return 1;
+    }
+
+    private int computeNumSuccess(AgingInfo info) {
+        if (isSuccess(info.plus2SuccessRate)) {
             return 2;
         }
         return 1;

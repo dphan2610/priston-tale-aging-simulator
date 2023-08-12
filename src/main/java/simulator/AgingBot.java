@@ -9,6 +9,7 @@ public class AgingBot {
     private List<Integer> eoaUsedList = new ArrayList<Integer>();
     private List<Integer> sasUsedList = new ArrayList<Integer>();
     private List<Integer> scoUsedList = new ArrayList<Integer>();
+    private List<Integer> ssoUsedList = new ArrayList<Integer>();
     private List<List<Sheltom>> sheltomUsedList = new ArrayList<List<Sheltom>>();
 
     private int trials;
@@ -29,6 +30,7 @@ public class AgingBot {
             eoaUsedList.add(simulator.totalEOA);
             sasUsedList.add(simulator.totalSAS);
             scoUsedList.add(simulator.totalSCO);
+            ssoUsedList.add(simulator.totalSSO);
             sheltomUsedList.add(simulator.sheltomsUsed);
         }
     }
@@ -51,6 +53,10 @@ public class AgingBot {
 
     public int getAverageSCOUsed() {
         return computeAverage(scoUsedList);
+    }
+
+    public int getAverageSSOUsed() {
+        return computeAverage(ssoUsedList);
     }
 
     public void countAverageSheltoms() {
