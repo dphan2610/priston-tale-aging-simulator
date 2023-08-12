@@ -18,7 +18,7 @@ public class AgingSimulator {
     private int startLevel;
     private int endLevel;
 
-    private boolean useSAS = false;
+    private boolean useSAS = true;
     private boolean useEOA = false;
 
     public List<Sheltom> sheltomsUsed = new ArrayList<Sheltom>();
@@ -32,7 +32,7 @@ public class AgingSimulator {
         validate();
         int currentLevel = startLevel;
         while (currentLevel < endLevel) {
-            if (currentLevel >= 6) {
+            if (currentLevel >= 10) {
                 useSAS = true;
             } else {
                 useSAS = false;
